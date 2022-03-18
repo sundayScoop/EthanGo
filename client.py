@@ -10,7 +10,7 @@ Written by Julio Medeiros
 import socket
 import threading
 
-version = 1.1
+version = 1.2
 print("Version: ", version, "\n")
 print("Enter 'end' to exit program\n")
 
@@ -23,7 +23,7 @@ def receive(conn):
     while True:
         try: data = conn.recv(1024) ## Receive messages from client
         except:
-            break
+            break ## If error is thrown due to other client disconnecting
         print("\nThem> ", data.decode("utf-8") ) ## If data exists, decode and display
     global quit_flag
     quit_flag = True
